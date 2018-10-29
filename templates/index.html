@@ -15,20 +15,49 @@
 </head>
 
 <body>
+
+<input id="clickMe" type="button" value="Campus Sontheim" onclick="mapping1(49.12259,9.210834999999975);" />
+<input id="clickMe2" type="button" value="Campus HN" onclick="mapping2(49.1484303,9.216506699999968);" />
+<input id="clickMe2" type="button" value="Campus Kuenzelsau" onclick="mapping3(49.27555950000001,9.712247899999966);" />
+<input id="clickMe2" type="button" value="Campus SHA" onclick="mapping4(49.1126492,9.744070400000055);" />
 	<div id="map"></div>
 <script>
+// Global, damit du von deinen funktionen aus zugreifen kannst
+var map = L.map('map').setView([51.165691,10.451526], 6);
+
 window.onload = function () {
- 	var map = L.map('map').setView([48.661604,9.350134], 7);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);
+}
 
-	L.marker([49.12194,9.21092]).addTo(map)
-	        .bindPopup('<strong>Hochschule Heilbronn</strong><br>Hochschule Heilbronn')
-	        .openPopup();
+function mapping1(latitude,longitude){
+    map.setView([latitude, longitude], 18);
+    L.marker([latitude, longitude]).addTo(map)
+            .bindPopup('<strong>Campus Sontheim</strong><br>Campus Sontheim')
+            .openPopup();
+}
+function mapping2(latitude,longitude){
+    map.setView([latitude, longitude], 18);
+    L.marker([latitude, longitude]).addTo(map)
+            .bindPopup('<strong>Campus HN</strong><br>Campus HN')
+            .openPopup();
+}
+function mapping3(latitude,longitude){
+    map.setView([latitude, longitude], 18);
+    L.marker([latitude, longitude]).addTo(map)
+            .bindPopup('<strong>Campus Kuenzelsaus</strong><br>Campus Kuenzelsaus')
+            .openPopup();
+}
+function mapping4(latitude,longitude){
+    map.setView([latitude, longitude], 18);
+    L.marker([latitude, longitude]).addTo(map)
+            .bindPopup('<strong>Campus SHA</strong><br>Campus SHA')
+            .openPopup();
 
 };
+
 </script>
 </body>
 </html>
